@@ -71,13 +71,11 @@ goldilocks <- data.frame(
   )
 )
 
-node_data <- data.frame(label = c(
-  "Goldilocks", "Porridge", "Just right", "Chairs",
-  "Just right2", "Beds", "Just right3", "Too cold",
-  "Too hot", "Still too big", "Too big", "Too soft",
-  "Too hard", "Bears!"
-)) |>
-  dplyr::mutate(name = gsub("\\d+$", "", label))
+node_data <- data.frame(
+  label = unique(unlist(goldilocks))
+)
+
+node_data$name <- gsub("\\d+$", "", node_data$label)
 
 node_data$type = c(
       "Character", "Question", "Answer",
