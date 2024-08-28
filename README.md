@@ -5,7 +5,8 @@
 ## Simple Example
 
 ```r
-library(ggplot2)
+# Example from <https://nrennie.rbind.io/ggflowchart/>
+
 library(ggflow)
 
 d <- data.frame(
@@ -14,11 +15,11 @@ d <- data.frame(
 )
 
 p1 <- ggflow(d, arrow=arrow(type='closed')) + 
-    geom_rect_flow(fill=NA, color='black') +
+    geom_scatter_rect(fill=NA, color='black') +
     geom_text(aes(label=label), size=10)
 
 p2 <- ggflow(d, arrow=arrow(type='closed'), layout=igraph::layout_nicely) + 
-    geom_rect_flow(fill=NA, color='black') +
+    geom_scatter_rect(fill=NA, color='black') +
     geom_text(aes(label=label), size=10) 
 
 aplot::plot_list(p1, p2)
@@ -27,10 +28,28 @@ aplot::plot_list(p1, p2)
 ![](figures/simple-chart.png)
 
 
+## ggtree layout
+
+```r
+library(igraph)
+library(ggflow)
+
+g <- graph.tree(40, 3)
+
+ggflow(g, layout = "ellipse", start_shave=0.05, end_shave=0.05) +
+  geom_point(size=10, shape=21, fill='steelblue', alpha=.6) + 
+  geom_tiplab(hjust=.8, vjust=.5) 
+```
+
+![](figures/ggtree-layout.png)
+
+
 ## Decision Tree
 
 
 ```r
+# Example from <https://nrennie.rbind.io/ggflowchart/>
+
 goldilocks <- data.frame(
   from = c(
     "Goldilocks",
@@ -79,7 +98,7 @@ td <- full_join(tr, data.frame(node_data))
 
 
 ggflow(td, arrow = arrow(type='closed')) + 
-    geom_rect_flow(aes(fill=type), color='black') +    
+    geom_scatter_rect(aes(fill=type), color='black') +    
     geom_text(aes(label=name), size=6) +
     labs(title = "The Goldilocks Decision Tree",
         caption = "Data: Robert Southey. Goldilocks and the Three Bears. 1837.") +

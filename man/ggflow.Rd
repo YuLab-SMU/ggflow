@@ -38,7 +38,7 @@ d <- data.frame(
   to = c("B", "C", "D", "E", "F", "G")
 )
 ggflow(d, arrow=arrow(type='closed')) + 
-    geom_rect_flow(fill=NA, color='black') +
+    geom_scatter_rect(fill=NA, color='black') +
     geom_text(aes(label=label), size=20)
 }
 \author{

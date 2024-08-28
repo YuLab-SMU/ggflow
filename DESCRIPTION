@@ -6,12 +6,11 @@ Authors@R: c(
 Description: A 'ggtree' version of flowchart.
 Imports:
     ggarchery,
+    ggfun,
     ggplot2,
     ggtree,
     igraph,
-    rlang,
-    treeio,
-    utils
+    treeio
 License: Artistic-2.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
