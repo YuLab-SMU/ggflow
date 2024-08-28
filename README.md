@@ -110,3 +110,31 @@ ggflow(td, arrow = arrow(type='closed')) +
 ```
 
 ![](figures/decision-tree.png)
+
+## ggtre-style network visualization
+
+```
+flow_info <- data.frame(from = LETTERS[c(1,2,3,3,4,5,6)],
+                        to = LETTERS[c(5,5,5,6,7,6,7)])
+
+dd <- data.frame(
+    label = LETTERS[1:7],
+    v1 = abs(rnorm(7)),
+    v2 = abs(rnorm(7)),
+    v3 = abs(rnorm(7))
+)
+
+g = igraph::graph_from_data_frame(flow_info)
+
+p <- ggplot(g)  + geom_edge()
+library(ggplot2)
+library(scatterpie)
+
+p %<+% dd + 
+    geom_scatterpie(cols = c("v1", "v2", "v3")) +
+    geom_text(aes(label=label), nudge_y = .2) + 
+    coord_fixed()
+```
+
+![](figures/network-scatterpie.png)
+
