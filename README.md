@@ -60,15 +60,12 @@ node_data <- data.frame(label = c(
 )) |>
   dplyr::mutate(name = gsub("\\d+$", "", label))
 
-node_data <- node_data |>
-  dplyr::mutate(
-    type = c(
+node_data$type = c(
       "Character", "Question", "Answer",
       "Question", "Answer", "Question",
       "Answer", "Answer", "Answer",
       "Answer", "Answer", "Answer",
       "Answer", "Character"
-    )
   )
 
 
