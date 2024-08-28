@@ -1,0 +1,18 @@
+Package: ggflow
+Title: Draw Flow Chart based on 'ggtree'
+Version: 0.0.1
+Authors@R: c(
+    person(given = "Guangchuang", family = "Yu", email = "guangchuangyu@gmail.com",   role  = c("aut", "cre"), comment = c(ORCID = "0000-0002-6485-8781")))
+Description: A 'ggtree' version of flowchart.
+Imports:
+    ggarchery,
+    ggplot2,
+    ggtree,
+    igraph,
+    rlang,
+    treeio,
+    utils
+License: Artistic-2.0
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
