@@ -111,7 +111,7 @@ ggflow(td, arrow = arrow(type='closed')) +
 
 ![](figures/decision-tree.png)
 
-## ggtre-style network visualization
+## ggtree-style network visualization
 
 ```
 flow_info <- data.frame(from = LETTERS[c(1,2,3,3,4,5,6)],
