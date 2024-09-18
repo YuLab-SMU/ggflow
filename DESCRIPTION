@@ -10,7 +10,6 @@ Imports:
     ggplot2,
     ggtree,
     igraph,
-    rlang,
     treeio,
     yulab.utils (>= 0.1.6)
 Suggests:
